@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  */
 @RestController
-@RequestMapping("/api")
 public class PingController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(PingController.class);
@@ -26,7 +25,7 @@ public class PingController {
 	 * 
 	 * @return message with the current date
 	 */
-	@RequestMapping("/hello")
+	@RequestMapping("/ping")
 	public String index() {
 		logger.debug("accessing ping GET controller");
 		return "bootme ping " + new Date();
