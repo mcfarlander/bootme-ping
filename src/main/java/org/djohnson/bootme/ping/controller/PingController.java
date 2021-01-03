@@ -8,15 +8,27 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * The ping controller is the main controller for communication with the companion web application.
+ * 
+ * @author DJohnson
+ * @since 1.0
+ *
+ */
 @RestController
+@RequestMapping("/api")
 public class PingController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(PingController.class);
 
-	@RequestMapping("/")
+	/**
+	 * The hello method for the web application.
+	 * 
+	 * @return message with the current date
+	 */
+	@RequestMapping("/hello")
 	public String index() {
 		logger.debug("accessing ping GET controller");
-		System.out.println("access ping GET controller");
 		return "bootme ping " + new Date();
 	}
 
