@@ -36,19 +36,19 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<!--  
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		-->
 		
+		<!--  See https://www.baeldung.com/spring-boot-configuration-metadata  -->
 		<dependency>
     		<groupId>org.springframework.boot</groupId>
     		<artifactId>spring-boot-configuration-processor</artifactId>
     		<optional>true</optional>
 		</dependency>
 		
+		<!-- Library for JWT  -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt</artifactId>
