@@ -7,7 +7,11 @@ a profile.
 
 ## Usage example
 
-http://localhost:8080/bootme-ping
+http://localhost:8080/api/
+
+## Resources
+1. GET /api/ping returns the ping date
+2. POST /api/authenticate returns a JWT for the request body {"username":"<user name>", "secret":"<your password>"}
 
 
 
