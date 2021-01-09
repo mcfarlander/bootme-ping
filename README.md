@@ -10,7 +10,8 @@ a profile.
 http://localhost:8080/api/
 
 ## Resources
-1. /api/ping returns the ping date
+1. GET /api/ping returns the ping date
+2. POST /api/authenticate returns a JWT for the request body {"username":"<user name>", "secret":"<your password>"}
 
 
 

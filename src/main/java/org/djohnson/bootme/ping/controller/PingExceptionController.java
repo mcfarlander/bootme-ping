@@ -18,7 +18,7 @@ public class PingExceptionController {
 	
 	@ExceptionHandler(value = PingException.class)
 	public ResponseEntity<Object> exception(PingException exception) {
-	      return new ResponseEntity<>("Bootme Ping error", HttpStatus.OK);
+	      return new ResponseEntity<>("Bootme Ping Error " + exception.getMessage(), HttpStatus.OK);
 	}
 
 }
