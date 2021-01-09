@@ -7,7 +7,10 @@ a profile.
 
 ## Usage example
 
-http://localhost:8080/bootme-ping
+http://localhost:8080/api/
+
+## Resources
+1. /api/ping returns the ping date
 
 
 

@@ -16,12 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  */
 @RestController
+@RequestMapping("/api")
 public class PingController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(PingController.class);
 
 	/**
-	 * The hello method for the web application.
+	 * The ping method for the web application.
 	 * 
 	 * @return message with the current date
 	 */
