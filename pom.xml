@@ -55,6 +55,18 @@
 			<version>0.9.1</version>
 		</dependency>
 		
+		
+		<!-- Support for xml binding in Java >= 9  -->
+		<dependency>
+  			<groupId>javax.xml.bind</groupId>
+  			<artifactId>jaxb-api</artifactId>
+		</dependency>
+
+		<dependency>
+  			<groupId>org.glassfish.jaxb</groupId>
+  			<artifactId>jaxb-runtime</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
