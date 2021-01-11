@@ -11,7 +11,8 @@ http://localhost:8080/api/
 
 ## Resources
 1. GET /api/ping returns the ping date
-2. POST /api/authenticate returns a JWT for the request body {"username":"<user name>", "secret":"<your password>"}
+2. POST /api/authenticate returns a JWT for the request body {"username":"a_user_name", "secret":"a_secret"}
+3. POST /api/verifyToken returns a true or false for the request body {"token":"a_token_string"} is valid and hasn't expired
 
 
 
