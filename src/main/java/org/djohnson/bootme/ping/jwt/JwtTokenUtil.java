@@ -81,7 +81,7 @@ public class JwtTokenUtil implements Serializable {
 	 * @param token the JWT to use
 	 * @return true if expired, false otherwise
 	 */
-	private Boolean isTokenExpired(String token) {
+	public boolean isTokenExpired(String token) {
 		final Date expiration = getExpirationDateFromToken(token);
 		return expiration.before(new Date());
 	}
@@ -115,7 +115,7 @@ public class JwtTokenUtil implements Serializable {
 	 * @param {@link UserDetails} the user's details
 	 * @return true if the user information matches what is in the JWT, false otherwise
 	 */
-	public Boolean validateToken(String token, UserDetails userDetails) {
+	public boolean validateToken(String token, UserDetails userDetails) {
 		final String username = getUsernameFromToken(token);
 		return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
 	}

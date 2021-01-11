@@ -7,7 +7,9 @@ import java.util.Objects;
 import org.djohnson.bootme.ping.exception.PingException;
 import org.djohnson.bootme.ping.jwt.JwtResponse;
 import org.djohnson.bootme.ping.jwt.JwtTokenUtil;
+import org.djohnson.bootme.ping.jwt.VerifyResponse;
 import org.djohnson.bootme.ping.model.LoginDTO;
+import org.djohnson.bootme.ping.model.VerifyTokenDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,8 +55,8 @@ public class PingController {
 	/**
 	 * The authenticate method for the web application. A POST request that returns a JWT with basic claims.
 	 * 
-	 * @return JWT with basic claims 
-	 * @throws PingException 
+	 * @return {@link JwtREsponse} JWT with basic claims 
+	 * @throws PingException any exception
 	 */
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> generateAuthenticationToken(@RequestBody LoginDTO login) throws PingException {
@@ -69,6 +71,26 @@ public class PingController {
 		final String token = jwtTokenUtil.generateToken(userDetails);
 
 		return ResponseEntity.ok(new JwtResponse(token));
+		
+	}
+	
+	/**
+	 * Verify the token hasn't expired.
+	 * 
+	 * @param verifyToken the token to verify
+	 * @return {@link VerifyResponse}
+	 * @throws PingException any exception
+	 */
+	@RequestMapping(value = "/verifyToken", method = RequestMethod.POST)
+	public ResponseEntity<?> verfifyToken(@RequestBody VerifyTokenDTO verifyToken) throws PingException {
+		
+		logger.debug("accessing bootme verfifyToken POST");
+		
+		Objects.requireNonNull(verifyToken.getToken());
+		
+		boolean isValid = !jwtTokenUtil.isTokenExpired(verifyToken.getToken());
+		
+		return ResponseEntity.ok(new VerifyResponse(isValid));
 		
 	}
 	
