@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+import org.djohnson.bootme.ping.exception.PingException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -70,9 +71,14 @@ public class JwtTokenUtil implements Serializable {
 	 * 
 	 * @param token the JWT to use
 	 * @return {@link Claims}
+	 * @throws PingException any exception
 	 */
-	private Claims getAllClaimsFromToken(String token) {
-		return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+	private Claims getAllClaimsFromToken(String token) throws PingException {
+		try {
+			return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+		} catch (Exception ex) {
+			throw new PingException("Unable to parse claims", ex);
+		}
 	}
 
 	/**
